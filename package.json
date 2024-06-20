@@ -1,5 +1,25 @@
 {
   "dependencies": {
     "bun": "^1.1.10"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon backend/server.js",
+    "build":"npm install && npm install --prefix chatApp && npm run build --prefix chatApp"
+ 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhfOpta/chatmern.git"
+  },
+  "keywords": [
+    "chat_App"
+  ],
+  "author": "tirth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhfOpta/chatmern/issues"
+  },
+  "homepage": "https://github.com/DhfOpta/chatmern#readme"
 }
