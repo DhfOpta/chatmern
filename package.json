@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "build":"npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix chatApp && npm run build --prefix chatApp"
+    "build":"npm install  && npm install --prefix chatApp && npm run build --prefix chatApp"
  
   },
   "repository": {
