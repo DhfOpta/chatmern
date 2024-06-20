@@ -1,12 +1,14 @@
 {
-  "dependencies": {
-    "bun": "^1.1.10"
-  },
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "chat_App",
+  "main": "Server.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "build":"npm install && npm install --prefix chatApp && npm run build --prefix chatApp"
+    "build":"npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix chatApp && npm run build --prefix chatApp"
  
   },
   "repository": {
