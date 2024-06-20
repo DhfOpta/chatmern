@@ -3,13 +3,15 @@ const path = require('path')
 const app = express();
 const cors = require("cors")
 const COnect_DB = require('./DB/mongo')
-
+const NODE_MODULE='production';
+// dotenv.config();
 //1st step:)
 // const sockt=require('socket.io')()
-
-require("dotenv").config()
+const dotenv=require("dotenv")
+dotenv.config();
+// require("dotenv").config()
 app.use(cors())
-
+console.log(process.env.PORT);
 const PORT = process.env.PORT || 8000;
 app.use(express.json())
 

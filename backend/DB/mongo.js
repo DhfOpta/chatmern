@@ -1,8 +1,10 @@
 const mongooe=require('mongoose')
-require("dotenv").config()
-
+ const dotenv=require("dotenv")
+ dotenv.config();
 const URL=process.env.MONGODB_URI;
 console.log(URL);
+console.log(process.env.MONGODB_URI);
+
 const COnect_DB=async()=>{
     try {
        await  mongooe.connect(URL);
@@ -10,7 +12,7 @@ const COnect_DB=async()=>{
         console.log('DB Connected:)');
     } catch (error) {
         console.log(error);
-        process.exit(0)
+        // process.exit(0)
     }
 }
 

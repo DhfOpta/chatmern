@@ -1,27 +1,24 @@
 {
   "name": "chatapp",
   "version": "1.0.0",
-  "description": "chat_App",
-  "main": "Server.js",
-  
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "build":"npm install  && npm install --prefix chatApp && npm run build --prefix chatApp"
- 
+    "start": "node backend/Server.js",
+    "build":"npm install && npm install --prefix chatApp && npm run build --prefix chatApp"
+
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DhfOpta/chatmern.git"
-  },
-  "keywords": [
-    "chat_App"
-  ],
-  "author": "tirth",
+  "author": "Tirth",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DhfOpta/chatmern/issues"
-  },
-  "homepage": "https://github.com/DhfOpta/chatmern#readme"
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.3",
+    "socket.io": "^4.7.5",
+    "validator": "^13.12.0"
+  }
 }
