@@ -1,0 +1,192 @@
+.container {
+  position: fixed;
+  left: 0;
+  bottom: 0.1%;
+  display: flex;
+  ;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 5rem;background-color: #fff;
+}
+
+.container .fstCont div,
+.secCont div,
+.thrdCont div {
+  display: grid;
+  place-items: center;
+}
+
+.container .fstCont,
+.secCont,
+.thrdCont {
+  padding: 1rem;
+
+
+  cursor: pointer;
+  background-color: rgba(136, 173, 175, 0.551);
+  border-radius: 2rem;
+  text-align: center;
+  transition: all .3s linear
+}
+
+.container .fstCont:hover,
+.secCont:hover,
+.thrdCont:hover {
+  background-color: rgba(90, 115, 116, 0.551);
+}
+
+.container .icon {
+  font-size: 2rem;
+  align-items: center;
+
+}
+
+@media (max-width:480px) {
+  .container {
+    position: fixed;
+    left: 0;
+    bottom: 0.5%;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5.6rem;
+    padding: .5rem;z-index: 99;
+    background-color: white;
+  }
+
+ 
+  .container .fstCont,
+  .secCont,
+  .thrdCont {
+    padding: 1.3rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background-color: rgba(136, 173, 175, 0.551);
+    border-radius: 2.5rem;
+    text-align: center;
+    transition: all .3s linear
+  }
+
+  .container .fstCont:hover,
+  .secCont:hover,
+  .thrdCont:hover {
+    background-color: rgba(90, 115, 116, 0.551);
+  }
+
+  .container .icon {
+    font-size: 2.2rem;
+    align-items: center;
+
+  }
+
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .container {
+    position: fixed;
+    left: 0;
+    bottom: 0.5%;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5.6rem;
+    padding: .5rem;z-index: 99;
+    background-color: white;      
+
+  }
+
+ 
+  .container .fstCont,
+  .secCont,
+  .thrdCont {
+    padding: 1.3rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background-color: rgba(136, 173, 175, 0.551);
+    border-radius: 2.5rem;
+    text-align: center;
+    transition: all .3s linear
+  }
+
+  .container .fstCont:hover,
+  .secCont:hover,
+  .thrdCont:hover {
+    background-color: rgba(90, 115, 116, 0.551);
+  }
+
+  .container .icon {
+    font-size: 2.2rem;
+    align-items: center;
+
+  }
+
+}
+@media (min-width: 768px) and (max-width: 1024px){
+  .container {
+    position: fixed;
+    left: 0;
+    bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 6.3rem;
+    padding: .5rem;z-index: 99;
+    background-color: white;      
+
+  }
+
+ 
+  .container .fstCont,
+  .secCont,
+  .thrdCont {
+    padding: 1.3rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background-color: rgba(136, 173, 175, 0.551);
+    border-radius: 2.5rem;
+    text-align: center;
+    transition: all .3s linear
+  }
+
+  .container .fstCont:hover,
+  .secCont:hover,
+  .thrdCont:hover {
+    background-color: rgba(90, 115, 116, 0.551);
+  }
+
+  .container .icon {
+    font-size: 2.9rem;
+    align-items: center;
+
+  }
+}
+
+/* @media (min-width:769px) {
+  .container{
+    margin-bottom: 3rem;
+  }
+  .container .icon {
+    font-size: 3.6rem;
+padding-right: 1rem;  
+  }
+  .container .fstCont,
+.secCont,
+.thrdCont {
+  padding: 1rem ;
+  
+ 
+  cursor: pointer;
+  background-color: rgba(136, 173, 175, 0.551);
+  border-radius: 15rem;
+  text-align: center;
+  transition: all .3s linear
+}
+} */
