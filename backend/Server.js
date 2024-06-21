@@ -22,12 +22,14 @@ app.use('/api', rout)
 // })
 // -------------------------Deployment------------------------------
 const __dirNam1 = path.resolve()
-console.log(path.join('D:/reactfirst/cht/', '/chatApp/dist'), '/');
+console.log(path.join('D:/reactfirst/cht/', '/frontEndChat/dist'), '/');
 if (process.env.NODE_MODULE == 'production') {
-    console.log(path.resolve('D:/reactfirst/cht/', "chatApp", "dist", "index.html"), 'cvbvb');
-    app.use(express.static(path.join('D:/reactfirst/cht/', '/chatApp/dist')))
+    console.log(path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html"), 'cvbvb');
+    app.use(express.static(path.join('D:/reactfirst/cht/', '/frontEndChat/dist')))
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve('D:/reactfirst/cht/', "chatApp", "dist", "index.html"))
+        res.sendFile(path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html"))
+
+        // res.sendFile(path.resolve('D:/reactfirst/cht/', "chatApp", "build", "index-51091e7e1d46afc6.html"))
     })
 }
 else {
