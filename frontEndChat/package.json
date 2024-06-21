@@ -16,6 +16,7 @@
     "@mui/material": "^5.15.20",
     "axios": "^1.7.2",
     "browser-router": "^0.2.0",
+    "chatapp": "file:..",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
