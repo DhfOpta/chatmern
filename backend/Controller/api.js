@@ -202,16 +202,16 @@ const updateDp = async (req, res) => {
 
         // console.log(dp + 'nvhvhv');
         const email =req.params.id
-        console.log(email===Number+ ' bvhv');
-if (email===Number ) {
+        console.log(typeof email+ ' bvhv',email);
+if (!email.includes("@")) {
   
 
-    const data = await UserRegstr.findOneAndUpdate({ email: email }, { dp })
+    const data = await UserRegstr.findOneAndUpdate({ _id: email }, { dp })
     // console.log(data + 'navhavhjavhavhavhavahvahvahvahah ah ah');
     res.status(200).json({ msg: "Updated" })
 }
 else{
-    const data = await UserRegstr.findOneAndUpdate({ _id: email }, { dp })
+    const data = await UserRegstr.findOneAndUpdate({ email: email }, { dp })
     res.status(200).json({ msg: "Updated" })
 
 }       

@@ -11,7 +11,7 @@ const validate=async(req,res,next)=>{
     }else{
         try {
             const tknVrfy=await jwt.verify(tokn,process.env.JWT_SECURTY);
-            // console.log(tknVrfy.email+" is a userName");
+            console.log(tknVrfy.email+" is a userName");
           
             const userData=await UserRegstr.findOne({email:tknVrfy.email});
             // console.log(userData);
