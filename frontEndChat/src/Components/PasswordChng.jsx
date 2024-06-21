@@ -47,7 +47,7 @@ function PasswordChng() {
         <input type='password' placeholder='Enter Password' name='userPassword' onChange={gtValue}
             value={name.userPassword}
         />
-          <input type='password' placeholder='Enter Password' name='conformPassword' onChange={gtValue}
+          <input type='password' placeholder='Confirm Password' name='conformPassword' onChange={gtValue}
             value={name.conformPassword}
         />
         <button className='btn' onClick={postRegister} >
