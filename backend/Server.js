@@ -27,8 +27,9 @@ if (process.env.NODE_MODULE == 'production') {
     console.log(path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html"), 'cvbvb');
     app.use(express.static(path.join('D:/reactfirst/cht/', '/frontEndChat/dist')))
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html"))
-
+        res.sendFile(        path.join(process.cwd(),'frontEndChat','dist','index.html')
+)
+        // path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html")
         // res.sendFile(path.resolve('D:/reactfirst/cht/', "chatApp", "build", "index-51091e7e1d46afc6.html"))
     })
 }
