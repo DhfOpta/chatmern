@@ -13,7 +13,7 @@ const PublicRoute = () => {
   const goglTokn = async () => {
     try {
       console.log('googleTokn');
-      const data = await axios.get('http://localhost:8080/googleTokn',{withCredentials:true})
+      const data = await axios.get('https://chatmern-27.onrender.com/googleTokn',{withCredentials:true})
       console.log(data.data.msg,data,'cvbnbvcvbnbvbbbbbbbbbbbbbbbbbb');
       const tokGl=await data.data.tokn
       console.log(tokGl,'gggttt');
@@ -25,7 +25,7 @@ const PublicRoute = () => {
   
   const Auth = async () => {
     try {
-      const data = await axios.get('http://localhost:8080/api/authRoute', {
+      const data = await axios.get('https://chatmern-27.onrender.com/api/authRoute', {
         headers: {
           'Authorization': tokn
         }

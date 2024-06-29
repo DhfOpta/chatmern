@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import io from 'socket.io-client';
 import './Chat.css';
 const ap = '/chatDataGt/:id'
-const userDataApi = 'http://localhost:8080/api/userData'//loginuserdetl
-const ep = 'http://localhost:8080'
+const userDataApi = 'https://chatmern-27.onrender.com/api/userData'//loginuserdetl
+const ep = 'https://chatmern-27.onrender.com'
 var socket, selectedChatCompar;
 const Chat = () => {
     const [userData, setUserData] = useState({})
@@ -38,7 +38,7 @@ const Chat = () => {
 
     const gtUserDataa = async () => {
         try {
-            const data = await axios.get('http://localhost:8080/api/userData', {
+            const data = await axios.get('https://chatmern-27.onrender.com/api/userData', {
                 headers: {
                     "Authorization": tokn
 
@@ -60,7 +60,7 @@ const Chat = () => {
 
     const gtUserData = async () => {
         try {
-            const data = await axios.get(`http://localhost:8080/api/followingUserData/${id.id}`, { headers: { "Authorization": tokn } })
+            const data = await axios.get(`https://chatmern-27.onrender.com/api/followingUserData/${id.id}`, { headers: { "Authorization": tokn } })
             console.log(data);
             setUserData(data.data.msg)
             socket.emit('joinChat', id.id)
@@ -71,7 +71,7 @@ const Chat = () => {
 
     const dataChatGt = async () => {
         try {
-            const data = await axios.get('http://localhost:8080/api/chatDataGt/' + id.id, { headers: { "Authorization": tokn } })
+            const data = await axios.get('https://chatmern-27.onrender.com/api/chatDataGt/' + id.id, { headers: { "Authorization": tokn } })
             // console.log(data);
             if (data.data.msg != 'Start Message') {
                 setLiveChat(data.data.msg)
@@ -91,7 +91,7 @@ const Chat = () => {
     const dataPost = async () => {
         try {
             setLiveChatMsg(false)
-            const dataPost = await axios.post('http://localhost:8080/api/chat', { Recever_id: id.id, Chat: chat }, { headers: { "Authorization": tokn } })
+            const dataPost = await axios.post('https://chatmern-27.onrender.com/api/chat', { Recever_id: id.id, Chat: chat }, { headers: { "Authorization": tokn } })
             console.log(dataPost);
             console.log([dataPost.data.msg]);
             

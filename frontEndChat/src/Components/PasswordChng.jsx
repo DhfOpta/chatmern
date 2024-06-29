@@ -23,7 +23,7 @@ function PasswordChng() {
         try {
             if (name.userPassword===name.conformPassword&&name.userPassword!==''&&name.conformPassword!=='') {
                 console.log(name.conformPassword);
-                const data=await axios.patch('http://localhost:8080/api/upDatPaswr',{password:name.conformPassword},{headers:{"Authorization":tokn}})
+                const data=await axios.patch('https://chatmern-27.onrender.com/api/upDatPaswr',{password:name.conformPassword},{headers:{"Authorization":tokn}})
                 if (data.status==200) {
                     navgt('/authDas/userDashboard/SettingUserPrfl')
                     toast('Updated Succefull')

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import BootomMNav from './BootomMNav'
 import './UserDeshboard.css'
-const api = 'http://localhost:8080/api/user'
+const api = 'https://chatmern-27.onrender.com/api/user'
 const UserDeshboard = () => {
     const tokn = localStorage.getItem('tokn')
     console.log(tokn);

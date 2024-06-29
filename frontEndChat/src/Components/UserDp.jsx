@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './UserDp.css';
-const api = 'http://localhost:8080/api/usertDp/'
+const api = 'https://chatmern-27.onrender.com/api/usertDp/'
 const UserDp = () => {
     const [img, setImg] = useState('https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg')
     const DpUserSet = localStorage.getItem('DpUserSet')

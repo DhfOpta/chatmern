@@ -4,16 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import './UserDetail.css';
 
 
-const userDataApi = 'http://localhost:8080/api/userData'//loginuserdetl
+const userDataApi = 'https://chatmern-27.onrender.com/api/userData'//loginuserdetl
 
-const api1 = 'http://localhost:8080/api/userFollowDtal/${cvl.following}'
-const app = 'http://localhost:8080/api/folloeingData'//foloingdatafromdb
-const api = 'http://localhost:8080/api/folloerData'//foloergdatafromdb
-const api2 = 'http://localhost:8080/api/userFollowDtal/${cvl.userId}'
+const api1 = 'https://chatmern-27.onrender.com/api/userFollowDtal/${cvl.following}'
+const app = 'https://chatmern-27.onrender.com/api/folloeingData'//foloingdatafromdb
+const api = 'https://chatmern-27.onrender.com/api/folloerData'//foloergdatafromdb
+const api2 = 'https://chatmern-27.onrender.com/api/userFollowDtal/${cvl.userId}'
 
 // const app='http://localhost:8080/api/folloeingData'
 
-const ap = 'http://localhost:8080/api/userFollowDtal/:id'
+const ap = 'https://chatmern-27.onrender.com/api/userFollowDtal/:id'
 const UserDetail = () => {
   const [userData, setUserData] = useState([])
   const [folower, setfolower] = useState([])
@@ -151,7 +151,7 @@ const UserDetail = () => {
         setFolowerData([])
       }
       setDataGtFloNam('Foloer')
-      const data = await axios.get(`http://localhost:8080/api/folloerData`, {
+      const data = await axios.get(`https://chatmern-27.onrender.com/api/folloerData`, {
         headers: {
           "Authorization": tokn
         }
@@ -171,7 +171,7 @@ const UserDetail = () => {
       }
       // setFolowerData([])
       setDataGtFloNam('Foloing')
-      const data = await axios.get(`http://localhost:8080/api/folloeingData`, {
+      const data = await axios.get(`https://chatmern-27.onrender.com/api/folloeingData`, {
         headers: {
           "Authorization": tokn
         }
@@ -189,7 +189,7 @@ const UserDetail = () => {
       setDataGtFlo([])
       folowing.map(async (cvl) => {
         console.log(cvl.following, 'nhavhahavhavhavhavhavh   ahchachacah');
-        const data = await axios.get(`http://localhost:8080/api//userFollowDtal/${cvl.following}`, {
+        const data = await axios.get(`https://chatmern-27.onrender.com/api//userFollowDtal/${cvl.following}`, {
           headers: {
             "Authorization": tokn
           }
@@ -210,7 +210,7 @@ const UserDetail = () => {
       setDataGtFlo([])
       folower.map(async (cvl) => {
         console.log(cvl.userId, 'nhavhahavhavhavhavhavh   ahchachacah');
-        const data = await axios.get(`http://localhost:8080/api/userFollowDtal/${cvl.userId}`, {
+        const data = await axios.get(`https://chatmern-27.onrender.com/api/userFollowDtal/${cvl.userId}`, {
           headers: {
             "Authorization": tokn
           }

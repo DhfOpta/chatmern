@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import card from '/public/search.png';
 
 import './Register.css';
-const api = 'http://localhost:8080/api/userLogin';
+const api = 'https://chatmern-27.onrender.com/api/userLogin';
 // alert(token)
 const Login = () => {
 
@@ -49,7 +49,7 @@ const Login = () => {
 
     // const tkn=
     const gogleChck = () => {
-        window.open('http://localhost:8080/auth/google/callback', "_self")
+        window.open('https://chatmern-27.onrender.com/auth/google/callback', "_self")
     }
     return (
         <>

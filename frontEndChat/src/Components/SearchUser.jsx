@@ -29,7 +29,7 @@ const tokn=localStorage.getItem('tokn')
   const dataUserSearch = async () => {
     try {
 
-      const data = await axios.get(`http://localhost:8080/api/searchUser?userName=${userSearch.searchUser}`,{
+      const data = await axios.get(`https://chatmern-27.onrender.com/api/searchUser?userName=${userSearch.searchUser}`,{
         headers:{
           "Authorization":tokn
         }

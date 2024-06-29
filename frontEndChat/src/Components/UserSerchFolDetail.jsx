@@ -4,13 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './UserDetail.css';
 
 // userFollowDtal
-const app = 'http://localhost:8080/api/folloeingData'
-const api = 'http://localhost:8080/api/folloerData'
-const a = 'http://localhost:8080/api/userSearchDataFoloing/'
-const aa = 'http://localhost:8080/api/userSearchDataFoloer/'
-const userDataApi = 'http://localhost:8080/api/userData'
-const ap = 'http://localhost:8080/api/userFollowDtal/'
-const follow = 'http://localhost:8080/api/follow'
+const app = 'https://chatmern-27.onrender.com/api/folloeingData'
+const api = 'https://chatmern-27.onrender.com/api/folloerData'
+const a = 'https://chatmern-27.onrender.com/api/userSearchDataFoloing/'
+const aa = 'https://chatmern-27.onrender.com/api/userSearchDataFoloer/'
+const userDataApi = 'https://chatmern-27.onrender.com/api/userData'
+const ap = 'https://chatmern-27.onrender.com/api/userFollowDtal/'
+const follow = 'https://chatmern-27.onrender.com/api/follow'
 const UserSerchFolDetail = () => {
     const [userData, setUserData] = useState([])
     const [folower, setfolower] = useState([])
@@ -28,7 +28,7 @@ const UserSerchFolDetail = () => {
     const navgt = useNavigate()
     const checkfolowNotFolow = async () => {
         try {
-            const data = await axios.get('http://localhost:8080/api/userFolowOrNot/' + id.id, { headers: { "Authorization": tokn } })
+            const data = await axios.get('https://chatmern-27.onrender.com/api/userFolowOrNot/' + id.id, { headers: { "Authorization": tokn } })
             console.log(data.data.msg);
             if (data.data.msg == 'Folllow') {
                 setfolowNotFolow(true)
@@ -51,7 +51,7 @@ const UserSerchFolDetail = () => {
     }
     const gtUserData = async () => {
         try {
-            const data = await axios.get(`http://localhost:8080/api/followingUserData/${id.id}`, { headers: { "Authorization": tokn } })
+            const data = await axios.get(`https://chatmern-27.onrender.com/api/followingUserData/${id.id}`, { headers: { "Authorization": tokn } })
             console.log(data);
             setUserData([data.data.msg])
         } catch (error) {
@@ -107,7 +107,7 @@ const UserSerchFolDetail = () => {
             setDataGtFlo([])
             folowing.map(async (cvl) => {
                 console.log(cvl.following, 'nhavhahavhavhavhavhavh   ahchachacah');
-                const data = await axios.get(`http://localhost:8080/api/userFollowDtal/${cvl.following}`)
+                const data = await axios.get(`https://chatmern-27.onrender.com/api/userFollowDtal/${cvl.following}`)
                 console.log(data, 'datafoling');
                 setFolowerData((prv) => {
                     return [...prv, data.data.msg[0]]
@@ -132,7 +132,7 @@ const UserSerchFolDetail = () => {
             setDataGtFlo([])
             folower.map(async (cvl) => {
                 console.log(cvl.following, 'nhavhahavhavhavhavhavh   ahchachacah');
-                const data = await axios.get(`http://localhost:8080/api/userFollowDtal/${cvl.userId}`)
+                const data = await axios.get(`https://chatmern-27.onrender.com/api/userFollowDtal/${cvl.userId}`)
                 console.log(data, 'datafoling');
                 setFolowIngData((prv) => {
                     return [...prv, data.data.msg[0]]
@@ -150,7 +150,7 @@ const UserSerchFolDetail = () => {
     }
     const ckck = async () => {
         try {
-            const data = await axios.get('http://localhost:8080/api/checkuserorNot/' + id.id, {
+            const data = await axios.get('https://chatmern-27.onrender.com/api/checkuserorNot/' + id.id, {
                 headers: {
                     "Authorization": tokn
                 }
