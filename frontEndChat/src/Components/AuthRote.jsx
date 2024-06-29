@@ -21,7 +21,7 @@ console.log(tokn);
   //   Auth()
   // },[])
   return (<>
-    <>{tokn?<>
+    <>{tokn!=undefined?<>
 <div style={{display:'grid',placeItems:'center',fontSize:'2rem',height:'100vh'}}><h3 >You are Login</h3></div>
 {setTimeout(()=>{
 nvgt('/authDas/userDashboard')

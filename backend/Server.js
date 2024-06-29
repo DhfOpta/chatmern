@@ -3,11 +3,21 @@ const path = require('path')
 const app = express();
 const cors = require("cors")
 const COnect_DB = require('./DB/mongo')
-const NODE_MODULE='production';
-// dotenv.config();
-//1st step:)
-// const sockt=require('socket.io')()
-const dotenv=require("dotenv")
+const NODE_MODULE = 'production';
+const UserRegstr = require('./DB/userRegiserSchema')
+const session = require('express-session')
+const passport = require('passport')
+const aout2Gogl = require('passport-google-oauth2').Strategy
+const JWT = require('jsonwebtoken');
+const { LocalStorage } = require('node-localstorage')
+localStorage = new LocalStorage('./scratch')
+
+const { MongoClient } = require("mongodb");
+
+const clientID = '464477524139-eosbs51b3ltnfpeccj0olb9gh4vn14h8.apps.googleusercontent.com'
+const clientSecret = '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'
+
+const dotenv = require("dotenv")
 dotenv.config();
 // require("dotenv").config()
 app.use(cors())
@@ -15,22 +25,169 @@ console.log(process.env.PORT);
 const PORT = process.env.PORT || 8000;
 app.use(express.json())
 
-const rout = require('./router/rotr')
+const rout = require('./router/rotr');
+const { validate } = require("./JWTVali dt");
 app.use('/api', rout)
 // app.get('/', (req, res) => {
 //     res.json({ msg: "Server start" })
 // })
+
+////////////////////////////////////passport////////////////////
+
+var tokn;
+// clientSecret clientID
+app.use(session({
+    secret: 'DhfOpta@1234',
+    resave: false,
+    saveUninitialized: true
+
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+// let tokn=undefined;
+passport.use(
+    new aout2Gogl({
+        clientID: clientID,
+        clientSecret: clientSecret,
+        callbackURL: '/auth/google/callback',
+        scope: ['profile', "email"]
+    },
+        async (accessToken, refreshToken, profile, done) => {
+            try {
+                console.log(profile, 'bcnccbcb', profile._json.sub);
+                let user = await UserRegstr.findOne({ $or: [{ googleid: profile._json.sub }, { email: profile.emails[0].value }] })
+                if (!user) {
+                    user = new UserRegstr({
+                        googleid: profile._json.sub,
+                        userName: profile.displayName,
+                        dp: profile.photos[0].value,
+                        email: profile.emails[0].value
+                    })
+
+                    console.log('acount not  have');
+                    await user.save()
+                } else {
+                    console.log('acconut have already!!!:)');
+                    console.log(user, 'has', profile._json.sub)
+
+                    const { id } = profile
+                    console.log(id, 'by emails');
+                    await UserRegstr.updateOne({ email: profile.emails[0].value },
+                        { $set: { googleid: id } }
+                    )
+
+                }
+                // const { userName, email, googleid } = user
+
+                // const JWTGnrt = async () => {
+                //     try {
+
+                //         return JWT.sign({
+                //             userName, email, googleid
+                //         }, process.env.JWT_SECURTY, {
+                //             expiresIn: "1d"
+                //         })
+                //     } catch (error) {
+                //         console.log(error);
+                //     }
+                // }
+                // const tok = await JWTGnrt()
+                // console.log('xcvbncccccccmnawait JWTGnrt()', tok);
+                // tokn = tok
+                // if (tok) {
+                //     console.log('ttookknn', tok);
+                //     // const tkn = tok
+                //     // console.log('tkn', tkn);
+                //     app.get('/googleTokn', async (req, res) => {
+                //         try {
+                //             // alert('gol')
+                //             // C:\Users\Your_User_Name\AppData\Local\Google\Chrome\User Data\Default 
+                //             console.log('start userreq');
+                //             //  res.status(200).json({
+                //             // msg: "login SuccesFull by passport",
+                //             // tokn: await JWTVarfy()
+                //             // }
+                //             // )
+                //             console.log('enf', await JWTVarfy());
+
+                //         } catch (error) {
+                //             console.log('errorerrorerrorerrorerrorerrorerrorerrorerrorerror         errorerrorerror          errorerrorerrorerrorerrorerrorerror');
+                //         }
+
+                //     })
+
+                // }
+                ;
+                return done(null, user)
+            } catch (error) {
+                return done(error, null)
+            }
+        })
+)
+// console.log(tokn,'n');
+
+passport.serializeUser((user, done) => {
+    done(null, user)
+})
+passport.deserializeUser((user, done) => {
+    done(null, user)
+})
+console.log(tokn, 'tokntokntokntokn jon');
+
+app.get('/auth/google', passport.authenticate("google", { scope: ['profile', "email"] }))
+app.get('/auth/google/callback', passport.authenticate("google", {
+    successRedirect: "http://localhost:8080/authDas/userDashboard",
+    failureRedirect: "http://localhost:8080/"
+}))
+
+app.get('/googleTokn', async (req, res) =>{
+    try {
+        console.log(req.user,'reqqq');
+        const { userName, email, googleid } = req.user
+console.log(' userName, email, googleid userName, email, googleid', userName, email, googleid);
+        const JWTGnrt = async () => {
+            try {
+
+                return JWT.sign({
+                    userName, email, googleid
+                }, process.env.JWT_SECURTY, {
+                    expiresIn: "1d"
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        const tok = await JWTGnrt()
+        console.log('xcvbncccccccmnawait JWTGnrt()', tok);
+        res.status(200).json({
+            msg: "login SuccesFull by passport",
+            tokn: await JWTGnrt()
+        })
+    } catch (error) {
+        console.log('errorby gt',error);
+    }
+})
+
+
+
+/////////////////////////////////////passport///////////////////
+
+
 // -------------------------Deployment------------------------------
 const __dirNam1 = path.resolve()
 console.log(path.join('D:/reactfirst/cht/', '/frontEndChat/dist'), '/');
 if (process.env.NODE_MODULE == 'production') {
     console.log(path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html"), 'cvbvb');
+    // var tokn = 'null';
+    console.log('prodct');
+    app.use(express.json())
+
+
     app.use(express.static(path.join('D:/reactfirst/cht/', '/frontEndChat/dist')))
     app.get('*', (req, res) => {
-        res.sendFile(        path.join(process.cwd(),'frontEndChat','dist','index.html')
-)
-        // path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html")
-        // res.sendFile(path.resolve('D:/reactfirst/cht/', "chatApp", "build", "index-51091e7e1d46afc6.html"))
+        res.sendFile(path.join(process.cwd(), 'frontEndChat', 'dist', 'index.html'))
+
     })
 }
 else {
@@ -39,8 +196,8 @@ else {
     })
 }
 
-// -------------------------Deployment------------------------------
 
+// -------------------------Deployment------------------------------
 
 var server = app.listen(PORT, () => console.log("Server start on " + PORT), COnect_DB())
 
@@ -79,18 +236,12 @@ io.on('connection', (socket) => {
             return console.log('no  user');
         } else {
             // socket.on('msgRecv', (newMsg)=>{
-
             socket.in(newMsg[0].Recever_id).emit('msgRv', newMsg)
 
-            // })
 
         }
 
-        // chat.users.forEach(element => {
-        // if (element._id == newMsg.sender._id) {
-        //     return
-        // }
-        // });
+
     })
 
 }) 

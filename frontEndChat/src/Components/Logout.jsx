@@ -7,6 +7,7 @@ const  Logout=()=> {
     const logOout=()=>{
         try {
           localStorage.removeItem('tokn')
+          localStorage.removeItem('DpUserSet')
             nvgt('/Login')
         } catch (error) {
             console.log(error);

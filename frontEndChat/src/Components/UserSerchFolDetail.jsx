@@ -256,6 +256,7 @@ const UserSerchFolDetail = () => {
                 {/* foloer n following show */}
                 <div className='searchResults'>
                     {dataGtFolo.map((cvl) => {
+                        console.log(cvl,'nnnnnnn')
                         return <>
                             <div className='manCont' key={cvl._id} onClick={() => { navgt(`/authDas/userDashboard/UserSerchFolDetail/${cvl._id}`) }}>
                                 <div className='userDap'>

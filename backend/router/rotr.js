@@ -26,7 +26,7 @@ router.route('/userSearchDataFoloer/:id').get(gtSearchUserDataFoloer)
 router.route('/userFolowOrNot/:id').get(validate,userFolowOrNot)
 router.route('/checkuserorNot/:id').get(validate,checkuserorNot)
 // followingUserData
-
+// router.route('/googleVarify')
 // gtUserData
 
 module.exports=router

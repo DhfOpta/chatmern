@@ -2,6 +2,7 @@ const {Schema,model}=require("mongoose")
 
 const userSchm=new Schema({
     userName:{type:String,require:true},
+    googleid:{type:String,unique:true},
     email:{type:String,unique:true,require:true},
     password:{type:String,require:true},
     dp:{type:String       

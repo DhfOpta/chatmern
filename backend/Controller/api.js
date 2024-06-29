@@ -201,24 +201,24 @@ const updateDp = async (req, res) => {
     try {
 
         // console.log(dp + 'nvhvhv');
-        const email =req.params.id
-        console.log(typeof email+ ' bvhv',email);
-if (!email.includes("@")) {
-  
+        const email = req.params.id
+        console.log(typeof email + ' bvhv', email);
+        if (!email.includes("@")) {
 
-    const data = await UserRegstr.findOneAndUpdate({ _id: email }, { dp })
-    // console.log(data + 'navhavhjavhavhavhavahvahvahvahah ah ah');
-    res.status(200).json({ msg: "Updated" })
-}
-else{
-    const data = await UserRegstr.findOneAndUpdate({ email: email }, { dp })
-    res.status(200).json({ msg: "Updated" })
 
-}       
-//  const data = await UserRegstr.findOneAndUpdate({ email: email }, { dp })
-//         // console.log(data + 'navhavhjavhavhavhavahvahvahvahah ah ah');
-//         res.status(200).json({ msg: "Updated" })
-//         // const upDateDp=await data.findBy
+            const data = await UserRegstr.findOneAndUpdate({ _id: email }, { dp })
+            // console.log(data + 'navhavhjavhavhavhavahvahvahvahah ah ah');
+            res.status(200).json({ msg: "Updated" })
+        }
+        else {
+            const data = await UserRegstr.findOneAndUpdate({ email: email }, { dp })
+            res.status(200).json({ msg: "Updated" })
+
+        }
+        //  const data = await UserRegstr.findOneAndUpdate({ email: email }, { dp })
+        //         // console.log(data + 'navhavhjavhavhavhavahvahvahvahah ah ah');
+        //         res.status(200).json({ msg: "Updated" })
+        //         // const upDateDp=await data.findBy
 
     } catch (error) {
         console.log(error + 'udtDp');
@@ -386,17 +386,17 @@ const authRote = async (req, res) => {
 }
 const upDatPaswr = async (req, res) => {
     try {
-        const {password}=req.body
-        console.log(res.userID,password,
+        const { password } = req.body
+        console.log(res.userID, password,
             'bbnn'
         );
         const salt = await bcrt.genSalt(10);
         const hash = await bcrt.hash(password, salt)
-        const data = await UserRegstr.findOneAndUpdate({ _id:res.userID },{password:hash})
-if (data) {
-    res.status(200).json({ msg: "Password Updated Succesfull" })
+        const data = await UserRegstr.findOneAndUpdate({ _id: res.userID }, { password: hash })
+        if (data) {
+            res.status(200).json({ msg: "Password Updated Succesfull" })
 
-}
+        }
 
     } catch (error) {
         console.log(error);
@@ -404,5 +404,5 @@ if (data) {
 }
 module.exports = {
     api, register, login, user, follow, chat, getUserData, updateDp, searchUser, getFolloeData, followingUserData, gtUserData, getFollIngeData
-    , gtSearchUserDataFoloIng, gtSearchUserDataFoloer, userFolowOrNot, checkuserorNot, chatDataGt, authRote,upDatPaswr
+    , gtSearchUserDataFoloIng, gtSearchUserDataFoloer, userFolowOrNot, checkuserorNot, chatDataGt, authRote, upDatPaswr
 }

@@ -4,9 +4,25 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 const PublicRoute = () => {
   const tokn = localStorage.getItem('tokn')
-  console.log(tokn);
+  // let username = getCookie("username");
+
+  console.log(tokn+'b  b',document.cookie);
+
   const [data, setData] = useState('')
   const nvgt = useNavigate()
+  const goglTokn = async () => {
+    try {
+      console.log('googleTokn');
+      const data = await axios.get('http://localhost:8080/googleTokn',{withCredentials:true})
+      console.log(data.data.msg,data,'cvbnbvcvbnbvbbbbbbbbbbbbbbbbbb');
+      const tokGl=await data.data.tokn
+      console.log(tokGl,'gggttt');
+      localStorage.setItem('tokn',tokGl)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   const Auth = async () => {
     try {
       const data = await axios.get('http://localhost:8080/api/authRoute', {
@@ -18,7 +34,7 @@ const PublicRoute = () => {
       if (data.data.msg == "Authenticated") {
         setData(false)
         // nvgt('/authDas/userDashboard')
-      } else{
+      } else {
         nvgt('/Login')
         setData(true)
       }
@@ -27,10 +43,15 @@ const PublicRoute = () => {
     }
   }
   useEffect(() => {
-    Auth()
-   
 
-  }, [])
+    if (!tokn||tokn=='undefined') {
+      goglTokn()
+      console.log('xcvcccccccccccccccccccccccccccccccccccccccc');
+    }else{
+      Auth()
+    }
+
+  }, [tokn])
   return (<>
     <>{data ? <>
 

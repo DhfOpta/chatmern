@@ -3,51 +3,60 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Register.css';
+import card from '/public/search.png';
 
-const api='http://localhost:8080/api/userLogin';
+import './Register.css';
+const api = 'http://localhost:8080/api/userLogin';
+// alert(token)
 const Login = () => {
-    
+
     const [name, setName] = useState({
         userName: "", userEmail: "", userPassword: ""
     })
-    const navgt=useNavigate()
+    const navgt = useNavigate()
 
     const gtValue = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setName((prv) => {
-            return { ...prv, 
-                [name]: value }
+            return {
+                ...prv,
+                [name]: value
+            }
         })
     }
 
-const postRegister=async()=>{
-    
-    const jsonData={
-        "userName":name.userName,"email":name.userEmail,"password":name.userPassword
-    };
-    try {
-        const dataPost=await axios.post(api,jsonData)
-        console.log(dataPost);
-        if (dataPost.status=='200') {
-            toast.success(dataPost.data.msg)
-            localStorage.setItem('tokn',dataPost.data.tokn)
-            navgt('/authDas/userDashboard')
-        }
-          
+    const postRegister = async () => {
 
-    } catch (error) {
-        console.log(error);
-        toast.warn(error.response.data.msg)
+        const jsonData = {
+            "userName": name.userName, "email": name.userEmail, "password": name.userPassword
+        };
+        try {
+            const dataPost = await axios.post(api, jsonData)
+            console.log(dataPost);
+            if (dataPost.status == '200') {
+                toast.success(dataPost.data.msg)
+                localStorage.setItem('tokn', dataPost.data.tokn)
+                navgt('/authDas/userDashboard')
+            }
+
+
+        } catch (error) {
+            console.log(error);
+            toast.warn(error.response.data.msg)
+        }
     }
-}
+
+    // const tkn=
+    const gogleChck = () => {
+        window.open('http://localhost:8080/auth/google/callback', "_self")
+    }
     return (
         <>
             <div className='RegisterContnr'>
 
                 <div>
-                    <form onSubmit={(e)=>e.preventDefault()}>
+                    <form onSubmit={(e) => e.preventDefault()}>
                         <input type='text' placeholder='Enter User Name' name='userName' onChange={gtValue}
                             value={name.userName}
                         />
@@ -58,11 +67,14 @@ const postRegister=async()=>{
                             value={name.userPassword}
                         />
                         <button className='btn' onClick={postRegister}>
-LogIn
+                            LogIn
                         </button>
-                       
+
                         <div className='alhvrgt'>
-                        <p>Not have an Account? <NavLink to='/' className="nav"><span>Sign Up</span></NavLink></p>
+                            <p>Not have an Account? <NavLink to='/' className="nav"><span>Sign Up</span></NavLink></p>
+                        </div>
+                        <div className='gl'>
+                            <button onClick={gogleChck}><img src={card} />Login With Google</button>
                         </div>
                     </form>
 

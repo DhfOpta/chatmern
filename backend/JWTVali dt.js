@@ -4,15 +4,19 @@ const UserRegstr = require("./DB/userRegiserSchema");
 const validate=async(req,res,next)=>{
 
     const tokn=await req.header("Authorization");
-    // console.log("Tokn"+tokn);
-    if(!tokn){
+    console.log("Tokn"+tokn);
+    if(!tokn||tokn=='undefined'){
         res.json({msg:'Invalid HTTP Request'})
-        
+        // return next()
+
     }else{
         try {
             const tknVrfy=await jwt.verify(tokn,process.env.JWT_SECURTY);
             console.log(tknVrfy.email+" is a userName");
-          
+          if (!tknVrfy|| tknVrfy=='undefined') {
+            // res.Msg='error'
+           return next()
+          }
             const userData=await UserRegstr.findOne({email:tknVrfy.email});
             // console.log(userData);
             res.user=userData.userName;

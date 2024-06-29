@@ -10,7 +10,7 @@ const UserDp = () => {
     const [warn, setWarn] = useState(true)
     const navgt = useNavigate()
     const param = useParams()
-    console.log(param,id);
+    console.log(param, id);
     console.log(DpUserSet + 'DpUserSet');
     const gtDp = async (e) => {
         try {
@@ -21,25 +21,16 @@ const UserDp = () => {
                 console.log(reader.result + 'bvchv nvhv h');
                 setImg(reader.result)
             }
+            // localStorage.removeItem('DpUserSet')
         } catch (error) {
             console.log(error);
         }
 
     }
+    console.log('befotr',DpUserSet);
     const updatDp = async () => {
-        try {
-            //    const data=await fetch(api + DpUserSet, {
-            //         method: 'PATCH',
-            //         crossDomain: true,
-            //         headers: {
-            //             "Content-Type": "application/json",
-            //             Accept: "application/json",
-            //             "Access-Control-Allow-Origin": "*"
-            //         }, body: JSON.stringify({ dp: img })
-            //     })
-
-            //     console.log(data.status)
-            // if (data.status==200) {}else{setWarn(false)}
+        try {    
+            
             if (param.chngDp === "chngDp" && id) {
                 console.log(api+id);
                 const data = await fetch(api + id, {
@@ -69,57 +60,56 @@ const UserDp = () => {
                 console.log(data.status)
                 if (data.status == 200) { navgt('/Login') } else { setWarn(false) }
             }
-        }
-            // else{setWarn(false)}
+        // else{setWarn(false)}
 
-        // } 
+        } 
         catch (error) {
-        console.log(error);
+            console.log(error);
+        }
     }
-}
-return (
-    <>
-        <div className='Prfole'>
-            <div className='pf'>
-                <div className='pfNm'>
-                    <h2>Select a Profile picature:</h2>
+    return (
+        <>
+            <div className='Prfole'>
+                <div className='pf'>
+                    <div className='pfNm'>
+                        <h2>Select a Profile picature:</h2>
 
-                </div>
-
-                <div className='rght'>
-                    <div>
-                        <img src={img} className='dpShaw' />
                     </div>
-                    {/* <div>
+
+                    <div className='rght'>
+                        <div>
+                            <img src={img} className='dpShaw' />
+                        </div>
+                        {/* <div>
                         <form onSubmit={(e) => e.preventDefault()}>
                             <input type='file' onChange={gtDp} />
                         </form>
 
                         </div> */}
-                    <div className="input_container">
+                        <div className="input_container">
 
 
-                        <form onSubmit={(e) => e.preventDefault()}>
-                            <label for="files" className="btn">Browse Files</label>
-                            <input id="files" style={{ display: "none" }} type="file" onChange={gtDp} />
-                        </form>
+                            <form onSubmit={(e) => e.preventDefault()}>
+                                <label for="files" className="btn">Browse Files</label>
+                                <input id="files" style={{ display: "none" }} type="file" onChange={gtDp} />
+                            </form>
 
+                        </div>
+                        {warn ? '' : <div class="danger">
+                            <p>File Size must be less than <strong>50KB</strong> </p>
+                        </div>}
+                        <div>
+                            <button className='btn' onClick={updatDp}>Select</button>
+
+                        </div>
                     </div>
-                    {warn ? '' : <div class="danger">
-                        <p>File Size must be less than <strong>50KB</strong> </p>
-                    </div>}
-                    <div>
-                        <button className='btn' onClick={updatDp}>Select</button>
 
-                    </div>
+
+
+
                 </div>
-
-
-
-
             </div>
-        </div>
-    </>)
+        </>)
 }
 
 export default UserDp

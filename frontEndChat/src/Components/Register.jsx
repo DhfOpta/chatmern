@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import immg from '../../public/search.png';
+import card from '/public/search.png';
+
 import './Register.css';
 
 const api = 'http://localhost:8080/api/userRegistration';
@@ -26,15 +29,16 @@ const Register = () => {
     const postRegister = async () => {
 
         const jsonData = {
-            "userName": name.userName, "email": name.userEmail, "password": name.userPassword
+            "userName": name.userName, "email": name.userEmail, "password": name.userPassword,"googleid":undefined
         };
         try {
             const dataPost = await axios.post(api, jsonData)
             console.log(dataPost);
             if (dataPost.status == 200) {
                 toast.success(dataPost.data.msg)
-                navgt('/UserDp')
                 localStorage.setItem("DpUserSet", name.userEmail)
+                navgt('/UserDp')
+                
             }
         } catch (error) {
             console.log(error);
@@ -42,11 +46,14 @@ const Register = () => {
 
         }
     }
+    const gogleChck=()=>{
+        window.open('http://localhost:8080/auth/google/callback',"_self")
+    }
     return (
         <>
             <div className='RegisterContnr'>
 
-                <div>
+                <div className='div'>
                     <form onSubmit={(e) => e.preventDefault()}>
                         <input type='text' placeholder='Enter User Name' name='userName' onChange={gtValue}
                             value={name.userName}
@@ -65,7 +72,11 @@ const Register = () => {
                         <div className='alhvrgt'>
                             <p>Already have an Account? <NavLink to='/Login' className="nav"><span>Login</span></NavLink></p>
                         </div>
+                        <div className='gl'>
+                        <button onClick={gogleChck}><img src={card} />Sigin With Google</button>
+                    </div>
                     </form>
+                  
 
                 </div>
             </div>
