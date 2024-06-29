@@ -14,8 +14,8 @@ localStorage = new LocalStorage('./scratch')
 
 const { MongoClient } = require("mongodb");
 
-const clientID = '464477524139-eosbs51b3ltnfpeccj0olb9gh4vn14h8.apps.googleusercontent.com'
-const clientSecret = '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'
+const clientID = process.env.clientID
+const clientSecret = process.env.clientSecret
 
 const dotenv = require("dotenv")
 dotenv.config();
