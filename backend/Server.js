@@ -209,7 +209,7 @@ var server = app.listen(PORT, () => console.log("Server start on " + PORT), COne
 // server()
 const io = require('socket.io')(server, {
     pingTimeout: 60000,
-    cors: { origin: 'http://localhost:5173', credential: true }
+    cors: { origin: 'http://localhost:8080', credential: true }
 })
 
 io.on('connection', (socket) => {
