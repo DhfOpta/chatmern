@@ -178,15 +178,15 @@ console.log(' userName, email, googleid userName, email, googleid', userName, em
 const __dirNam1 = path.resolve()
 console.log(path.join('D:/reactfirst/cht/', '/frontEndChat/dist'), '/');
 if (process.env.NODE_MODULE == 'production') {
-    console.log(path.resolve('D:/reactfirst/cht/', "frontEndChat", "dist", "index.html"), 'cvbvb');
+    console.log(path.resolve('D:/reactfirst/cht/',  "dist", "index.html"), 'cvbvb');
     // var tokn = 'null';
     console.log('prodct');
     app.use(express.json())
 
 
-    app.use(express.static(path.join('D:/reactfirst/cht/', '/frontEndChat/dist')))
+    app.use(express.static(path.join('D:/reactfirst/cht/', '/dist')))
     app.get('*', (req, res) => {
-        res.sendFile(path.join(process.cwd(), 'frontEndChat', 'dist', 'index.html'))
+        res.sendFile(path.join(process.cwd(),  'dist', 'index.html'))
 
     })
 }
