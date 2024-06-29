@@ -137,8 +137,8 @@ console.log(tokn, 'tokntokntokntokn jon');
 
 app.get('/auth/google', passport.authenticate("google", { scope: ['profile', "email"] }))
 app.get('/auth/google/callback', passport.authenticate("google", {
-    successRedirect: "http://localhost:8080/authDas/userDashboard",
-    failureRedirect: "http://localhost:8080/"
+    successRedirect: "https://chatmern-281.onrender.com/authDas/userDashboard",
+    failureRedirect: "https://chatmern-281.onrender.com/"
 }))
 
 app.get('/googleTokn', async (req, res) =>{
