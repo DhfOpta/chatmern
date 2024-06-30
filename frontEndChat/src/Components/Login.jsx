@@ -49,7 +49,7 @@ const Login = () => {
 
     // const tkn=
     const gogleChck = () => {
-        window.open('https://chatmern-27.onrender.com/auth/google/callback', "_self")
+        window.open('https://chatmern-281.onrender.com/auth/google/callback', "_self")
     }
     return (
         <>
