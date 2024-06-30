@@ -19,6 +19,8 @@ const PublicRoute = () => {
       console.log(tokGl,'gggttt');
       nvgt('/authDas/userDashboard')
       localStorage.setItem('tokn',tokGl)
+            nvgt('/authDas/userDashboard')
+
     } catch (error) {
       console.log(error);
     }
