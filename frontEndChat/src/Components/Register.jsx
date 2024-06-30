@@ -14,7 +14,7 @@ const Register = () => {
     const [name, setName] = useState({
         userName: "", userEmail: "", userPassword: ""
     })
-    const navgt=useNavigate()
+    const navgt = useNavigate()
     const gtValue = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -29,7 +29,7 @@ const Register = () => {
     const postRegister = async () => {
 
         const jsonData = {
-            "userName": name.userName, "email": name.userEmail, "password": name.userPassword,"googleid":undefined
+            "userName": name.userName, "email": name.userEmail, "password": name.userPassword, "googleid": undefined
         };
         try {
             const dataPost = await axios.post(api, jsonData)
@@ -38,7 +38,7 @@ const Register = () => {
                 toast.success(dataPost.data.msg)
                 localStorage.setItem("DpUserSet", name.userEmail)
                 navgt('/UserDp')
-                
+
             }
         } catch (error) {
             console.log(error);
@@ -46,8 +46,8 @@ const Register = () => {
 
         }
     }
-    const gogleChck=()=>{
-        window.open('https://chatmern-27.onrender.com/auth/google/callback',"_self")
+    const gogleChck = () => {
+        window.open('https://chatmern-27.onrender.com/auth/google/callback', "_self")
     }
     // 
     return (
@@ -74,10 +74,10 @@ const Register = () => {
                             <p>Already have an Account? <NavLink to='/Login' className="nav"><span>Login</span></NavLink></p>
                         </div>
                         <div className='gl'>
-                        <button onClick={gogleChck}><img src={card} />Sigin With Google</button>
-                    </div>
+                            <button onClick={gogleChck}><img src={card} />Sigin With Google</button>
+                        </div>
                     </form>
-                  
+
 
                 </div>
             </div>

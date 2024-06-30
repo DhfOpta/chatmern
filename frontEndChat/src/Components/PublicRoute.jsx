@@ -17,6 +17,7 @@ const PublicRoute = () => {
       console.log(data.data.msg,data,'cvbnbvcvbnbvbbbbbbbbbbbbbbbbbb');
       const tokGl=await data.data.tokn
       console.log(tokGl,'gggttt');
+      nvgt('/authDas/userDashboard')
       localStorage.setItem('tokn',tokGl)
     } catch (error) {
       console.log(error);
