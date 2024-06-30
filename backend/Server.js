@@ -50,7 +50,7 @@ passport.use(
     new aout2Gogl({
         clientID: clientID,
         clientSecret: clientSecret,
-        callbackURL: '/auth/google/callback',
+        callbackURL: 'https://chatmern-27.onrender.com/auth/google/callback',
         scope: ['profile', "email"]
     },
         async (accessToken, refreshToken, profile, done) => {
@@ -78,47 +78,7 @@ passport.use(
                     )
 
                 }
-                // const { userName, email, googleid } = user
-
-                // const JWTGnrt = async () => {
-                //     try {
-
-                //         return JWT.sign({
-                //             userName, email, googleid
-                //         }, process.env.JWT_SECURTY, {
-                //             expiresIn: "1d"
-                //         })
-                //     } catch (error) {
-                //         console.log(error);
-                //     }
-                // }
-                // const tok = await JWTGnrt()
-                // console.log('xcvbncccccccmnawait JWTGnrt()', tok);
-                // tokn = tok
-                // if (tok) {
-                //     console.log('ttookknn', tok);
-                //     // const tkn = tok
-                //     // console.log('tkn', tkn);
-                //     app.get('/googleTokn', async (req, res) => {
-                //         try {
-                //             // alert('gol')
-                //             // C:\Users\Your_User_Name\AppData\Local\Google\Chrome\User Data\Default 
-                //             console.log('start userreq');
-                //             //  res.status(200).json({
-                //             // msg: "login SuccesFull by passport",
-                //             // tokn: await JWTVarfy()
-                //             // }
-                //             // )
-                //             console.log('enf', await JWTVarfy());
-
-                //         } catch (error) {
-                //             console.log('errorerrorerrorerrorerrorerrorerrorerrorerrorerror         errorerrorerror          errorerrorerrorerrorerrorerrorerror');
-                //         }
-
-                //     })
-
-                // }
-                ;
+               
                 return done(null, user)
             } catch (error) {
                 return done(error, null)
