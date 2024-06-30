@@ -49,6 +49,7 @@ const Register = () => {
     const gogleChck=()=>{
         window.open('https://chatmern-27.onrender.com/auth/google/callback',"_self")
     }
+    // 
     return (
         <>
             <div className='RegisterContnr'>
