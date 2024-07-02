@@ -57,7 +57,7 @@ export default function ControlledAccordions() {
       <div>
         <ToggleButton style={{width:'100%',marginTop:'1rem',fontSize:'1.2rem'}} onClick={()=>{localStorage.removeItem('tokn'),
         localStorage.removeItem('val'),    localStorage.removeItem('DpUserSet')
-            nvgt('/Login')}}>Logout</ToggleButton>
+            nvgt('/Regiter/Login')}}>Logout</ToggleButton>
       </div>
   </div>
   );

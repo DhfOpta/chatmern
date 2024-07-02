@@ -20,22 +20,22 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<AuthRote />}>
-          <Route path='/' element={<Register />} />
-          <Route path='/Login' element={<Login />} />
-          <Route path='/UserDp' element={<UserDp />} />
+        <Route path='/Regiter' element={<AuthRote />}>
+          <Route path='/Regiter/' element={<Register />} />
+          <Route path='/Regiter/Login' element={<Login />} />
+          <Route path='/Regiter/UserDp' element={<UserDp />} />
         </Route>
-        <Route path='/authDas/' element={<PublicRoute />}>
-          <Route path='/authDas/userDashboard/' element={<UserDeshboard />}>
-            <Route path='/authDas/userDashboard/' element={<SearchUser />} />
-            <Route path='/authDas/userDashboard/UserSerchFolDetail/:id' element={<UserSerchFolDetail />} />
+        <Route path='/' element={<PublicRoute />}>
+          <Route path='/userDashboard/' element={<UserDeshboard />}>
+            <Route path='/userDashboard/' element={<SearchUser />} />
+            <Route path='/userDashboard/UserSerchFolDetail/:id' element={<UserSerchFolDetail />} />
 
-            <Route path='/authDas/userDashboard/UserDetail' element={<UserDetail />} />
-            <Route path='/authDas/userDashboard/SettingUserPrfl' element={<ControlledAccordions />} />
-            <Route path='/authDas/userDashboard/Chat/:id' element={<Chat />} />
-            <Route path='/authDas/userDashboard/UserDp/:chngDp' element={<UserDp />} />
-            <Route path='/authDas/userDashboard/PasswordChng' element={<PasswordChng />} />
-<Route path='/authDas/userDashboard/Logout' element={<Logout/>}/>
+            <Route path='/userDashboard/UserDetail' element={<UserDetail />} />
+            <Route path='/userDashboard/SettingUserPrfl' element={<ControlledAccordions />} />
+            <Route path='/userDashboard/Chat/:id' element={<Chat />} />
+            <Route path='/userDashboard/UserDp/:chngDp' element={<UserDp />} />
+            <Route path='/userDashboard/PasswordChng' element={<PasswordChng />} />
+<Route path='/userDashboard/Logout' element={<Logout/>}/>
           </Route>
 
         </Route>

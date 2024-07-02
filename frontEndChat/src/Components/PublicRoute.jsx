@@ -17,9 +17,9 @@ const PublicRoute = () => {
       console.log(data.data.msg,data,'cvbnbvcvbnbvbbbbbbbbbbbbbbbbbb');
       const tokGl=await data.data.tokn
       console.log(tokGl,'gggttt');
-      nvgt('/authDas/userDashboard')
+      // nvgt('/authDas/userDashboard')
       localStorage.setItem('tokn',tokGl)
-            nvgt('/authDas/userDashboard')
+      nvgt('/userDashboard/')
 
     } catch (error) {
       console.log(error);
@@ -36,9 +36,9 @@ const PublicRoute = () => {
       console.log(data)
       if (data.data.msg == "Authenticated") {
         setData(false)
-        nvgt('/authDas/userDashboard/')
+        nvgt('/userDashboard/')
       } else {
-        nvgt('/Login')
+        nvgt('/Regiter/Login')
         setData(true)
       }
     } catch (error) {

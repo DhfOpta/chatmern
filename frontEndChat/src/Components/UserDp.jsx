@@ -44,7 +44,7 @@ const UserDp = () => {
                 })
 
                 console.log(data.status)
-                if (data.status == 200) { navgt('/authDas/userDashboard/SettingUserPrfl') } else { setWarn(false) }
+                if (data.status == 200) { navgt('/userDashboard/SettingUserPrfl') } else { setWarn(false) }
 
             } else {
                 const data = await fetch(api + DpUserSet, {
@@ -58,7 +58,7 @@ const UserDp = () => {
                 })
 
                 console.log(data.status)
-                if (data.status == 200) { navgt('/Login') } else { setWarn(false) }
+                if (data.status == 200) { navgt('/Regiter/Login') } else { setWarn(false) }
             }
         // else{setWarn(false)}
 
