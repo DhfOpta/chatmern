@@ -26,7 +26,7 @@ function App() {
           <Route path='/UserDp' element={<UserDp />} />
         </Route>
         <Route path='/authDas/' element={<PublicRoute />}>
-          <Route path='/authDas/userDashboard' element={<UserDeshboard />}>
+          <Route path='/authDas/userDashboard/' element={<UserDeshboard />}>
             <Route path='/authDas/userDashboard/' element={<SearchUser />} />
             <Route path='/authDas/userDashboard/UserSerchFolDetail/:id' element={<UserSerchFolDetail />} />
 

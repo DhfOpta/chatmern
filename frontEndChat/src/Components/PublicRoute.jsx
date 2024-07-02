@@ -36,7 +36,7 @@ const PublicRoute = () => {
       console.log(data)
       if (data.data.msg == "Authenticated") {
         setData(false)
-        // nvgt('/authDas/userDashboard')
+        nvgt('/authDas/userDashboard/')
       } else {
         nvgt('/Login')
         setData(true)
