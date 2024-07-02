@@ -37,7 +37,7 @@ const Login = () => {
             if (dataPost.status == '200') {
                 toast.success(dataPost.data.msg)
                 localStorage.setItem('tokn', dataPost.data.tokn)
-                navgt('/authDas/')
+                navgt('/authDas/userDashboard')
             }
 
 
