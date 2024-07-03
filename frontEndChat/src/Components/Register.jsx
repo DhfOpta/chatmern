@@ -37,7 +37,7 @@ const Register = () => {
             if (dataPost.status == 200) {
                 toast.success(dataPost.data.msg)
                 localStorage.setItem("DpUserSet", name.userEmail)
-                navgt('/UserDp') 
+                navgt('/authDas/userDashboard/UserDp/') 
 
             }
         } catch (error) {
