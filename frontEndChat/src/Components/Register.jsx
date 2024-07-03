@@ -29,7 +29,7 @@ const Register = () => {
     const postRegister = async () => {
 
         const jsonData = {
-            "userName": name.userName, "email": name.userEmail, "password": name.userPassword
+            "userName": name.userName, "email": name.userEmail, "password": name.userPassword, "googleid": undefined
         };
         try {
             const dataPost = await axios.post(api, jsonData)
