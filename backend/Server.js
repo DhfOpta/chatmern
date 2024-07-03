@@ -39,7 +39,11 @@ var tokn;
 app.use(session({
     secret: 'DhfOpta@1234',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    maxAge: 1000 * 60 * 15,
+    cookie: {
+        secure: true
+    }
 
 }))
 app.use(passport.initialize())
